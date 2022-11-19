@@ -4,6 +4,11 @@ class AlunosController {
     static async pegaTodosOsAlunos(req, res) {
         try {
             const todosOsAlunos = await database.Alunos.findAll();
+
+            if(todosOsAlunos.length === 0) {
+                return res.status(200).json({ message: 'Nenhum aluno encontrado' });
+            }
+            
             return res.status(200).json(todosOsAlunos);
         } catch(error) {
             return res.status(500).json({ message: error.message });
