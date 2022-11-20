@@ -25,10 +25,12 @@ module.exports = (sequelize, DataTypes) => {
     personaisCpf: {
       allowNull: false,
       type: DataTypes.STRING
-    }
+    },
+
+    tableName: "Disponibilidade"
   });
 
-  sequelize.associate = function (models) {
+  Disponibilidade.associate = function (models) {
     Disponibilidade.belongsTo(models.Personais, { foreignKey: "personaisCpf" });
   };
 

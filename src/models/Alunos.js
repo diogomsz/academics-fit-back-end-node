@@ -35,10 +35,12 @@ module.exports = (sequelize, DataTypes) => {
     cadastradosCpf: {
       allowNull: false,
       type: DataTypes.STRING
-    }
+    },
+
+    tableName: "Alunos"
   });
 
-  sequelize.associate = function (models) {
+  Alunos.associate = function (models) {
     Alunos.belongsTo(models.Cadastrados, { foreignKey: "cadastradosCpf" });
   };
 

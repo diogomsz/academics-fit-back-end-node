@@ -30,10 +30,12 @@ module.exports = (sequelize, DataTypes) => {
     cadastradosCpf: {
       allowNull: false,
       type: DataTypes.STRING
-    }
+    },
+
+    tableName: "Personais"
   });
 
-  sequelize.associate = function (models) {
+  Personais.associate = function (models) {
     Personais.belongsTo(models.Cadastrados, { foreignKey: "cadastradosCpf" });
     Personais.hasMany(models.Cadastrados, { foreignKey: "personaisCpf" });
     Personais.hasMany(models.Exercicios, { foreignKey: "personaisCpf" });

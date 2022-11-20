@@ -25,10 +25,12 @@ module.exports = (sequelize, DataTypes) => {
     senha: {
       allowNull: false,
       type: DataTypes.STRING
-    }
+    },
+
+    tableName: "Cadastrados"
   });
 
-  sequelize.associate = function (models) {
+  Cadastrados.associate = function (models) {
     Cadastrados.hasMany(models.Alunos, { foreignKey: "cadastradosCpf" });
     Cadastrados.hasMany(models.Personais, { foreignKey: "cadastradosCpf" });
   };
