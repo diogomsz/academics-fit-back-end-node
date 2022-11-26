@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Usuario',
-    paranoid: true,
   });
 
   return Usuario;
