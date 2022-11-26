@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Disponibilidade',
+    paranoid: true,
   });
 
   return Disponibilidade;
