@@ -1,7 +1,9 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-  sequelize.define('Aluno', {});
+  sequelize.define('Aluno', {
+    
+  });
   Aluno.associate = function (models) {};
 
   Aluno.init({

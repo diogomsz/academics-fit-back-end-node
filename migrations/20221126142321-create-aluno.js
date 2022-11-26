@@ -3,6 +3,11 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Alunos', {
+      uid: {
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+        allowNull: false
+      },
       id: {
         allowNull: false,
         autoIncrement: true,
