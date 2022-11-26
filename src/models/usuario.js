@@ -2,16 +2,9 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class Usuario extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  }
+  sequelize.define('Usuario', {});
+  Usuario.associate = function (models) {};
+
   Usuario.init({
     email: DataTypes.STRING,
     nome: DataTypes.STRING,
@@ -20,5 +13,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Usuario',
   });
+  
   return Usuario;
 };

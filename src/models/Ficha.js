@@ -1,17 +1,9 @@
 'use strict';
-const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class Ficha extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  }
+  sequelize.define('Ficha', {});
+  Ficha.associate = function (models) {};
+
   Ficha.init({
     nome_exercicio: DataTypes.STRING,
     series: DataTypes.NUMBER,
@@ -20,5 +12,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Ficha',
   });
+
   return Ficha;
 };
