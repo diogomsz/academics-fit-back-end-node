@@ -40,7 +40,8 @@ module.exports = {
       },
       feedback_id_fk: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {model: 'Feedback', key: 'id'},
       },
       createdAt: {
         allowNull: false,
