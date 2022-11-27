@@ -39,6 +39,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
   Feedback.associate = function (models) {
+    Feedback.belongsTo(models.Personal, { foreignKey: 'personal_cpf_fk' });
     Feedback.hasMany(models.Aluno, { foreignKey: 'feedback_id_fk' });
   };
 

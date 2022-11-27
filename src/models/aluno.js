@@ -50,8 +50,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE
     }
   });
+  
   Aluno.associate = function (models) {
-    Aluno.belongsTo(models.FeedBack, { foreignKey: 'feedback_id_fk' });
+    Aluno.belongsTo(models.Usuario, { foreignKey: 'usuario_email_fk' });
+    Aluno.belongsTo(models.Feedback, { foreignKey: 'feedback_id_fk' });
+    Aluno.hasMany(models.Aula, { foreignKey: 'aluno_cpf_fk' });
+    Aluno.hasMany(models.Disponibilidade, { foreignKey: 'cpf' });
   };
 
   Aluno.init({

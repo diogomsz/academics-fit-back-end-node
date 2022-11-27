@@ -14,21 +14,33 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      aluno_cpf_fk: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      personal_cpf_fk: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
       data: {
         allowNull: false,
         type: Sequelize.DATE
       },
       ficha_fk: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Fichas',
+          key: 'id'
+        }
+      },
+      aluno_cpf_fk: {
+        allowNull: false,
+        type: Sequelize.STRING,
+        references: {
+          model: 'Alunos',
+          key: 'cpf'
+        }
+      },
+      personal_cpf_fk: {
+        allowNull: false,
+        type: Sequelize.STRING, 
+        references: {
+          model: 'Personais',
+          key: 'cpf'
+        }
       },
       createdAt: {
         allowNull: false,

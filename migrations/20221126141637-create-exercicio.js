@@ -28,11 +28,19 @@ module.exports = {
       },
       ficha_fk: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Fichas',
+          key: 'id'
+        }
       },
       personal_cpf_fk: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        references: {
+          model: 'Personais',
+          key: 'cpf'
+        }
       },
       createdAt: {
         allowNull: false,

@@ -16,7 +16,15 @@ module.exports = {
       cpf: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        references: {
+          model: 'Personais',
+          key: 'cpf'
+        },
+        references: {
+          model: 'Alunos',
+          key: 'cpf'
+        }
       },
       dia_semana: {
         allowNull: false,

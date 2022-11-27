@@ -28,7 +28,11 @@ module.exports = {
       },
       personal_cpf_fk: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        references: {
+          model: 'Personais',
+          key: 'cpf'
+        }
       },
       createdAt: {
         allowNull: false,
