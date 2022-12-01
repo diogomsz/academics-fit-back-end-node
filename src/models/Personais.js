@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-  sequelize.define('Personal', {
+  sequelize.define('Personais', {
     uid: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -43,13 +43,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
   
-  Personal.associate = function (models) {
-    Personal.belongsTo(models.Usuario, { foreignKey: 'usuario_email_fk' });
-    Personal.hasMany(models.Aula, { foreignKey: 'personal_cpf_fk' });
-    Personal.hasMany(models.Feedback, { foreignKey: 'personal_cpf_fk' });
+  Personais.associate = function (models) {
+    Personais.belongsTo(models.Usuario, { foreignKey: 'usuario_email_fk' });
+    Personais.hasMany(models.Aula, { foreignKey: 'personal_cpf_fk' });
+    Personais.hasMany(models.Feedback, { foreignKey: 'personal_cpf_fk' });
   };
 
-  Personal.init({
+  Personais.init({
     cpf: DataTypes.STRING,
     especializacao: DataTypes.STRING,
     pcd: DataTypes.STRING,
@@ -57,8 +57,8 @@ module.exports = (sequelize, DataTypes) => {
     usuario_email_fk: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'Personal',
+    modelName: 'Personais',
   });
 
-  return Personal;
+  return Personais;
 };

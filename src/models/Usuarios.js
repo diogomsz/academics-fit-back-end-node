@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-  sequelize.define('Usuario', {
+  sequelize.define('Usuarios', {
     uid: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -34,19 +34,19 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE
     }
   });
-  Usuario.associate = function (models) {
-    Usuario.hasMany(models.Aluno, { foreignKey: 'usuario_email_fk' });
-    Usuario.hasMany(models.Personal, { foreignKey: 'usuario_email_fk' });
+  Usuarios.associate = function (models) {
+    Usuarios.hasMany(models.Aluno, { foreignKey: 'usuario_email_fk' });
+    Usuarios.hasMany(models.Personal, { foreignKey: 'usuario_email_fk' });
   };
 
-  Usuario.init({
+  Usuarios.init({
     email: DataTypes.STRING,
     nome: DataTypes.STRING,
     senha: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'Usuario',
+    modelName: 'Usuarios',
   });
 
-  return Usuario;
+  return Usuarios;
 };
