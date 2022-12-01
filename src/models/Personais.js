@@ -44,9 +44,9 @@ module.exports = (sequelize, DataTypes) => {
   });
   
   Personais.associate = function (models) {
-    Personais.belongsTo(models.Usuario, { foreignKey: 'usuario_email_fk' });
-    Personais.hasMany(models.Aula, { foreignKey: 'personal_cpf_fk' });
-    Personais.hasMany(models.Feedback, { foreignKey: 'personal_cpf_fk' });
+    Personais.belongsTo(models.Usuarios, { foreignKey: 'usuario_email_fk' });
+    Personais.hasMany(models.Aulas, { foreignKey: 'personal_cpf_fk' });
+    Personais.hasMany(models.Feedbacks, { foreignKey: 'personal_cpf_fk' });
   };
 
   Personais.init({

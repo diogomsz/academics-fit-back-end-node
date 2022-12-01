@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-  sequelize.define('Aluno', {
+  sequelize.define('Alunos', {
     uid: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -51,14 +51,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
   
-  Aluno.associate = function (models) {
-    Aluno.belongsTo(models.Usuario, { foreignKey: 'usuario_email_fk' });
-    Aluno.belongsTo(models.Feedback, { foreignKey: 'feedback_id_fk' });
-    Aluno.hasMany(models.Aula, { foreignKey: 'aluno_cpf_fk' });
-    Aluno.hasMany(models.Disponibilidade, { foreignKey: 'cpf' });
+  Alunos.associate = function (models) {
+    Alunos.belongsTo(models.Usuarios, { foreignKey: 'usuario_email_fk' });
+    Alunos.belongsTo(models.Feedbacks, { foreignKey: 'feedback_id_fk' });
+    Alunos.hasMany(models.Aulas, { foreignKey: 'aluno_cpf_fk' });
+    Alunos.hasMany(models.Disponibilidades, { foreignKey: 'cpf' });
   };
 
-  Aluno.init({
+  Alunos.init({
     cpf: DataTypes.STRING,
     altura: DataTypes.INTEGER,
     peso: DataTypes.DOUBLE,
@@ -68,8 +68,8 @@ module.exports = (sequelize, DataTypes) => {
     feedback_id_fk: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'Aluno',
+    modelName: 'Alunos',
   });
 
-  return Aluno;
+  return Alunos;
 };

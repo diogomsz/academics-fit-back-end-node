@@ -35,8 +35,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
   Usuarios.associate = function (models) {
-    Usuarios.hasMany(models.Aluno, { foreignKey: 'usuario_email_fk' });
-    Usuarios.hasMany(models.Personal, { foreignKey: 'usuario_email_fk' });
+    Usuarios.hasMany(models.Alunos, { foreignKey: 'usuario_email_fk' });
+    Usuarios.hasMany(models.Personais, { foreignKey: 'usuario_email_fk' });
   };
 
   Usuarios.init({

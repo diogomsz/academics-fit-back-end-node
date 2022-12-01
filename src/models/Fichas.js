@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-  sequelize.define('Ficha', {
+  sequelize.define('Fichas', {
     uid: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -35,20 +35,20 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
   
-  Ficha.associate = function (models) {
-    Ficha.hasMany(models.Aula, { foreignKey: 'ficha_fk' });
-    Ficha.hasMany(models.Exercicio, { foreignKey: 'ficha_fk' });
-    Ficha.hasMany(models.Personal, { foreignKey: 'personal_cpf_fk' });
+  Fichas.associate = function (models) {
+    Fichas.hasMany(models.Aulas, { foreignKey: 'ficha_fk' });
+    Fichas.hasMany(models.Exercicios, { foreignKey: 'ficha_fk' });
+    Fichas.hasMany(models.Personais, { foreignKey: 'personal_cpf_fk' });
   }
 
-  Ficha.init({
+  Fichas.init({
     nome_exercicio: DataTypes.STRING,
     series: DataTypes.NUMBER,
     repeticoes: DataTypes.NUMBER
   }, {
     sequelize,
-    modelName: 'Ficha',
+    modelName: 'Fichas',
   });
 
-  return Ficha;
+  return Fichas;
 };

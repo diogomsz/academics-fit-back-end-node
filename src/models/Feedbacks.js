@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-  sequelize.define('Feedback', {
+  sequelize.define('Feedbacks', {
     uid: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -38,20 +38,20 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE
     }
   });
-  Feedback.associate = function (models) {
-    Feedback.belongsTo(models.Personal, { foreignKey: 'personal_cpf_fk' });
-    Feedback.hasMany(models.Aluno, { foreignKey: 'feedback_id_fk' });
+  Feedbacks.associate = function (models) {
+    Feedbacks.belongsTo(models.Personais, { foreignKey: 'personal_cpf_fk' });
+    Feedbacks.hasMany(models.Alunos, { foreignKey: 'feedback_id_fk' });
   };
 
-  Feedback.init({
+  Feedbacks.init({
     avaliacao_sistema: DataTypes.INTEGER,
     comentario: DataTypes.STRING,
     recomendacao_sistema: DataTypes.INTEGER,
     personal_cpf_fk: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'Feedback',
+    modelName: 'Feedbacks',
   });
   
-  return Feedback;
+  return Feedbacks;
 };

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-  sequelize.define('Exercicio', {
+  sequelize.define('Exercicios', {
     uid: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -42,12 +42,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE
     }
   });
-  Exercicio.associate = function (models) {
-    Exercicio.belongsTo(models.Ficha, { foreignKey: 'ficha_fk' });
-    Exercicio.belongsTo(models.Personal, { foreignKey: 'personal_cpf_fk' });
+  Exercicios.associate = function (models) {
+    Exercicios.belongsTo(models.Fichas, { foreignKey: 'ficha_fk' });
+    Exercicios.belongsTo(models.Personais, { foreignKey: 'personal_cpf_fk' });
   };
 
-  Exercicio.init({
+  Exercicios.init({
     nome: DataTypes.STRING,
     link: DataTypes.STRING,
     grupo_muscular: DataTypes.STRING,
@@ -55,8 +55,8 @@ module.exports = (sequelize, DataTypes) => {
     personal_cpf_fk: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'Exercicio',
+    modelName: 'Exercicios',
   });
   
-  return Exercicio;
+  return Exercicios;
 };

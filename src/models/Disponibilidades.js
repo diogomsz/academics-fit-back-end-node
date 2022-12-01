@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-  sequelize.define('Disponibilidade', {
+  sequelize.define('Disponibilidades', {
     uid: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -31,17 +31,17 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
 
-  Disponibilidade.associate = function (models) {
-    Disponibilidade.belongsTo(models.Aluno, { foreignKey: 'cpf' });
+  Disponibilidades.associate = function (models) {
+    Disponibilidades.belongsTo(models.Alunos, { foreignKey: 'cpf' });
   }
 
-  Disponibilidade.init({
+  Disponibilidades.init({
     cpf: DataTypes.STRING,
     dia_semana: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'Disponibilidade',
+    modelName: 'Disponibilidades',
   });
 
-  return Disponibilidade;
+  return Disponibilidades;
 };
