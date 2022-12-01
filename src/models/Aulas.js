@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-  sequelize.define('Aulas', {
+  const Aulas = sequelize.define('Aulas', {
     uid: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -43,16 +43,6 @@ module.exports = (sequelize, DataTypes) => {
     Aulas.belongsTo(models.Personais, { foreignKey: 'personal_cpf_fk' });
     Aulas.belongsTo(models.Fichas, { foreignKey: 'ficha_fk' });
   };
-
-  Aulas.init({
-    aluno_cpf_fk: DataTypes.STRING,
-    personal_cpf_fk: DataTypes.STRING,
-    data: DataTypes.DATE,
-    ficha_fk: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'Aulas',
-  });
 
   return Aulas;
 };
