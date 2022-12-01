@@ -42,16 +42,6 @@ module.exports = (sequelize, DataTypes) => {
     Feedbacks.belongsTo(models.Personais, { foreignKey: 'personal_cpf_fk' });
     Feedbacks.hasMany(models.Alunos, { foreignKey: 'feedback_id_fk' });
   };
-
-  Feedbacks.init({
-    avaliacao_sistema: DataTypes.INTEGER,
-    comentario: DataTypes.STRING,
-    recomendacao_sistema: DataTypes.INTEGER,
-    personal_cpf_fk: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Feedbacks',
-  });
   
   return Feedbacks;
 };

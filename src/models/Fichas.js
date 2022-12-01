@@ -39,16 +39,7 @@ module.exports = (sequelize, DataTypes) => {
     Fichas.hasMany(models.Aulas, { foreignKey: 'ficha_fk' });
     Fichas.hasMany(models.Exercicios, { foreignKey: 'ficha_fk' });
     Fichas.hasMany(models.Personais, { foreignKey: 'personal_cpf_fk' });
-  }
-
-  Fichas.init({
-    nome_exercicio: DataTypes.STRING,
-    series: DataTypes.NUMBER,
-    repeticoes: DataTypes.NUMBER
-  }, {
-    sequelize,
-    modelName: 'Fichas',
-  });
+  };
 
   return Fichas;
 };

@@ -39,14 +39,5 @@ module.exports = (sequelize, DataTypes) => {
     Usuarios.hasMany(models.Personais, { foreignKey: 'usuario_email_fk' });
   };
 
-  Usuarios.init({
-    email: DataTypes.STRING,
-    nome: DataTypes.STRING,
-    senha: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Usuarios',
-  });
-
   return Usuarios;
 };

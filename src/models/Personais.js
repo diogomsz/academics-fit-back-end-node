@@ -49,16 +49,5 @@ module.exports = (sequelize, DataTypes) => {
     Personais.hasMany(models.Feedbacks, { foreignKey: 'personal_cpf_fk' });
   };
 
-  Personais.init({
-    cpf: DataTypes.STRING,
-    especializacao: DataTypes.STRING,
-    pcd: DataTypes.STRING,
-    personal_email: DataTypes.STRING,
-    usuario_email_fk: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Personais',
-  });
-
   return Personais;
 };
