@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const RegistrarController = require('../controllers/registrarController');
+const RegistrarController = require('../controllers/RegistrarController');
 
 const router = Router();
 
