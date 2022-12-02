@@ -7,7 +7,7 @@ class RegistrarController {
             const novoUsuarioCriado = await database.Usuarios.create(novoUsuario);
             return res.status(200).json(novoUsuarioCriado);
         } catch (error) {
-            return res.status(500).json(error.message);
+            return res.status(500).json({ mensagem: error.message });
         }
     }
 }
