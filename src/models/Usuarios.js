@@ -34,6 +34,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE
     }
   });
+  
   Usuarios.associate = function (models) {
     Usuarios.hasMany(models.Alunos, { foreignKey: 'usuario_email_fk' });
     Usuarios.hasMany(models.Personais, { foreignKey: 'usuario_email_fk' });

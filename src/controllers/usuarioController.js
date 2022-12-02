@@ -1,4 +1,4 @@
-const database = require('../models/Usuarios');
+const database = require('../models');
 
 class UsuarioController {
     static async pegaTodosOsUsuarios(req, res) {
@@ -57,9 +57,9 @@ class UsuarioController {
         try {
             const usuario = await database.Usuarios.findOne({ where: { email: email, senha: senha } });
             if (usuario) {
-                return res.status(200).json({ mensagem: 'Usuário válido' });
+                return res.status(200).json({ mensagem: 'Usuário válido', ...usuario.dataValues });
             } else {
-                return res.status(404).json({ mensagem: "Usuário não encontrado" });
+                return res.status(403).json({ mensagem: "Usuário não encontrado" });
             }
         } catch (error) {
             return res.status(500).json(error.message);
