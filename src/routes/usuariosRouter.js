@@ -9,4 +9,3 @@ router.get('/usuarios', UsuarioController.pegaTodosOsUsuarios)
       .delete('/usuarios/:id', UsuarioController.apagaUsuario)
       
 module.exports = router;
-

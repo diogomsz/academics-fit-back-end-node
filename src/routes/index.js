@@ -1,11 +1,12 @@
 const bodyParser = require("body-parser");
+const express = require("express");
 const usuariosRouter = require('../routes/usuariosRouter');
 const loginRouter = require('../routes/loginRouter');
-const registerRouter = require('../routes/registerRouter');
+const cadastroRouter = require('./cadastroRouter');
 
 module.exports = app => {
     app.get('/', (req, res) => {
-        res.status(200).json({ message: 'back-end diogo martins' });
+        res.render(app.use(express.static('../views/index.html')));
     });
-    app.use(bodyParser.json(), usuariosRouter, loginRouter, registerRouter);
+    app.use(bodyParser.json(), usuariosRouter, loginRouter, cadastroRouter);
 };
