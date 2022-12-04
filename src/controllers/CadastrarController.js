@@ -1,6 +1,6 @@
 const database = require('../models');
 
-class RegistrarController {
+class CadastrarController {
     static async registrar(req, res) {
         const novoUsuario = req.body;
         try {
@@ -12,4 +12,4 @@ class RegistrarController {
     }
 }
 
-module.exports = RegistrarController;
+module.exports = CadastrarController;

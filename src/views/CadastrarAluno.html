@@ -25,23 +25,23 @@
 
         <form action="/cadastroaAluno" method="POST">
           <div class='label-float'>
+            <input name='nomeCadastroAluno' type='text' id='NomeCadastroAluno' maxlength="50" paceholder='' required>
             <label id='userLabel' for='NomeCadastroAluno'>Nome</label>
-            <input type='text' id='NomeCadastroAluno' maxlength="15" paceholder='' required>
           </div>
 
           <div class='label-float'>
-            <label name='CpfCadastroAluno' id='userLabel' for='CpfCadastroAluno'>CPF</label>
-            <input type='text' id='CpfCadastroAluno' maxlength="11" paceholder='' required>
+            <input name='cpfCadastroAluno' type='text' id='CpfCadastroAluno' maxlength="11" required>
+            <label  id='userLabel' for='CpfCadastroAluno'>CPF</label>
           </div>
 
           <div class='label-float'>
-            <label name='EmailCadastroAluno' id='userLabel' for='EmailCadastroAluno'>Email</label>
-            <input type='email' id='EmailCadastroAluno' paceholder='' required>
+            <input name='emailCadastroAluno' type='email' id='EmailCadastroAluno' required>
+            <label id='userLabel' for='EmailCadastroAluno'>Email</label>
           </div>
 
           <div class='label-float'>
-            <label name='SenhaCadastroAluno' id='senhaLabel' for='SenhaCadastroAluno'>Senha</label>
-            <input type='password' id='SenhaCadastroAluno' paceholder='' required>
+            <input name='senhaCadastroAluno' type='password' id='SenhaCadastroAluno' required>
+            <label id='senhaLabel' for='SenhaCadastroAluno'>Senha</label>
             <i class="fa fa-eye" aria-hidden="true"></i>
           </div>
 
