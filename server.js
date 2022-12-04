@@ -5,9 +5,9 @@ const routes = require('./src/routes/index');
 const port = process.env.PORT || 3030;
 
 const app = express();
-routes(app);
-
 app.use(express.static(__dirname + '/src/views'));
+
+routes(app);
 
 app.get('/', (req, res) => {
     res.render(path.join(__dirname, 'src/views/index'), {url: '/home'});
@@ -22,7 +22,16 @@ app.get('/loginPersonal', (req, res) => {
 });
 
 app.get('/cadastrarAluno', (req, res) => {
-    res.sendFile(__dirname + '/src/views/CadastrarAluno.html');
+    res.render(path.join(__dirname, 'src/views/cadastrarAluno'), {url: '/cadastrarAluno'});
+});
+
+app.get('/cadastrarPersonal', (req, res) => {
+    res.render(path.join(__dirname, 'src/views/cadastrarPersonal'), {url: '/cadastrarPersonal'});
+});
+
+app.post('/cadastrarAluno', (req, res) => {
+    res.redirect('/loginAluno');
+    next();
 });
 
 app.listen(port, () => {

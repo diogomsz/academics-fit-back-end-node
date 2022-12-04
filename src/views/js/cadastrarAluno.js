@@ -16,6 +16,7 @@ botaoCadastroAluno.addEventListener('click', async (e) =>{
         },
         body: JSON.stringify(dados)
     });
+    
     const result = await res.json();
     console.log(result);
 });
