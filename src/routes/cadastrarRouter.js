@@ -3,6 +3,6 @@ const CadastrarController = require('../controllers/CadastrarController');
 
 const router = Router();
 
-router.post('/cadastroAluno', CadastrarController.registrar);
+router.post('/cadastrarAluno', CadastrarController.registrar);
 
 module.exports = router;

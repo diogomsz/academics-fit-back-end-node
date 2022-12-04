@@ -8,7 +8,7 @@ botaoCadastroAluno.addEventListener('click', async (e) =>{
 
     const dados = getReqBody();
 
-    const res = await fetch('/cadastroAluno', {
+    const res = await fetch('/cadastrarAluno', {
         method: 'POST',
         cors: 'no-cors',
         headers: {

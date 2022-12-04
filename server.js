@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/src/views/index.html');
 });
 
-app.get('/cadastroAluno', (req, res) => {
+app.get('/cadastrarAluno', (req, res) => {
     res.sendFile(__dirname + '/src/views/CadastrarAluno.html');
 });
 
