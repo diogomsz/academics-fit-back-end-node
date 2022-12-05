@@ -29,11 +29,6 @@ app.get('/cadastrarPersonal', (req, res) => {
     res.render(path.join(__dirname, 'src/views/cadastrarPersonal'), {url: '/cadastrarPersonal'});
 });
 
-app.post('/cadastrarAluno', (req, res) => {
-    res.redirect('/loginAluno');
-    next();
-});
-
 app.listen(port, () => {
     console.log(`http://localhost:${port}`);
 });

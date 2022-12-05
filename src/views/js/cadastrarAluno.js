@@ -10,13 +10,12 @@ botaoCadastroAluno.addEventListener('click', async (e) =>{
 
     const res = await fetch('/cadastrarAluno', {
         method: 'POST',
-        cors: 'no-cors',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(dados)
     });
-    
+
     const result = await res.json();
     console.log(result);
 });
