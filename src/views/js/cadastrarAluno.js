@@ -18,6 +18,8 @@ botaoCadastroAluno.addEventListener('click', async (e) =>{
 
     const result = await res.json();
     console.log(result);
+
+    window.location.href = "/loginAluno";
 });
 
 function getReqBody() {
