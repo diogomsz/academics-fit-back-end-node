@@ -1,13 +1,13 @@
 const emailLoginAluno = document.getElementById('EmailLoginAluno');
-const senhaLoginAluno = document.querySelector('enhaLoginAluno');
+const senhaLoginAluno = document.getElementById('SenhaLoginAluno');
 
 const btnLoginAluno = document.querySelector('.btnLogar');
 
 btnLoginAluno.addEventListener('click', async (e) => {
     e.preventDefault();
-
     const reqBody = getReqBody();
-    await fetch('/loginAluno', {
+
+    const res = await fetch('/loginAluno', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -15,6 +15,11 @@ btnLoginAluno.addEventListener('click', async (e) => {
         body: JSON.stringify(reqBody)
     });
 
+    if(res.status === 403) {
+        alert('Email ou senha incorretos');
+        return;
+    }
+    
     window.location.href = '/';
 });
 
