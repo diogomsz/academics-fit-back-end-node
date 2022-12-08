@@ -35,6 +35,10 @@ app.get('/montagemFicha', (req, res) => {
     res.sendFile('src/views/iniciodaFicha.html', { root: __dirname });
 });
 
+app.get('/perfil', (req, res) => {
+    res.sendFile('src/views/alunoPrincipal.html', { root: __dirname });
+});
+
 app.listen(port, () => {
     console.log(`http://localhost:${port}`);
 });
