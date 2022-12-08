@@ -10,8 +10,6 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" type="text/css" href="css/style.css">
 
-
-
 </head>
 
 <body>
@@ -27,18 +25,18 @@
           <div id='msgError'></div>
 
           <div class='label-float'>
-            <input type='text' id='CpfLoginAluno' maxlength="11" paceholder='' required>
-            <label id='userLabel' for='usuario'>CPF</label>
+            <input type='email' id='emailLoginPersonal' maxlength="30" paceholder='' required>
+            <label id='userLabel' for='usuario'>Email</label>
           </div>
 
           <div class='label-float'>
-            <input type='password' id='senhaLoginAluno' paceholder='' required>
+            <input type='password' id='senhaLoginPersonal' paceholder='' required>
             <label id='senhaLabel' for='senha'>Senha</label>
             <i class="fa fa-eye" aria-hidden="true"></i>
           </div>
 
           <div class='justify-center'>
-            <button onclick='entrar()'>Entrar</button>
+            <button id='btnLoginPersonal'>Entrar</button>
           </div>
 
           <div class='justify-center'>
@@ -51,26 +49,12 @@
       <a href='/cadastrarPersonal'> Cadastre-se </a>
     </p>
 
-
-
-
-
-
-
-
     </div>
     </div>
-
-
-
-
-
 
   </header>
 
-
-
-
+  <script src="js/logarPersonal.js"></script>
 </body>
 
 </html>

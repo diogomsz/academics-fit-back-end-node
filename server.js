@@ -31,6 +31,10 @@ app.get('/cadastrarPersonal', (req, res) => {
     res.sendFile('src/views/cadastrarPersonal.html', { root: __dirname });
 });
 
+app.get('/montagemFicha', (req, res) => {
+    res.sendFile('src/views/iniciodaFicha.html', { root: __dirname });
+});
+
 app.listen(port, () => {
     console.log(`http://localhost:${port}`);
 });

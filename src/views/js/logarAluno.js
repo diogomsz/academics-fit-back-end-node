@@ -20,7 +20,7 @@ btnLoginAluno.addEventListener('click', async (e) => {
         return;
     }
     
-    window.location.href = '/';
+    window.location.href = '/montagemFicha';
 });
 
 function getReqBody() {
