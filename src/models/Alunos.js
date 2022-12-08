@@ -36,11 +36,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING
     },
     feedback_id: {
-      allowNull: false,
+      autoIncrement: true,
       type: DataTypes.INTEGER
     },
     feedback_id_fk: {
-      allowNull: false,
       type: DataTypes.INTEGER
     },
     createdAt: {

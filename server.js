@@ -35,7 +35,7 @@ app.get('/montagemFicha', (req, res) => {
     res.sendFile('src/views/iniciodaFicha.html', { root: __dirname });
 });
 
-app.get('/perfil', (req, res) => {
+app.get('/perfilAluno', (req, res) => {
     res.sendFile('src/views/alunoPrincipal.html', { root: __dirname });
 });
 
