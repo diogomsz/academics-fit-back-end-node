@@ -1,54 +1,43 @@
 'use strict';
+/** @type {import('sequelize-cli').Migration} */
 
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Alunos', {
-      uid: {
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
-        allowNull: false
-      },
       id: {
         allowNull: false,
         autoIncrement: true,
         type: Sequelize.INTEGER
       },
       cpf: {
-        allowNull: false,
         primaryKey: true,
         type: Sequelize.STRING
       },
       altura: {
-        allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.FLOAT
       },
       peso: {
-        allowNull: false,
-        type: Sequelize.DOUBLE
+        type: Sequelize.FLOAT
       },
       imc: {
-        allowNull: false,
-        type: Sequelize.DOUBLE
+        type: Sequelize.FLOAT
       },
       feedback_id: {
-        allowNull: false,
         type: Sequelize.INTEGER
       },
       usuario_email_fk: {
-        allowNull: false,
         type: Sequelize.STRING,
         references: {
           model: 'Usuarios',
-          key: 'email'
-        }
+          key: 'email',
+        },
       },
       feedback_id_fk: {
-        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'Feedbacks',
-          key: 'id'
-        }
+          key: 'id',
+        },
       },
       createdAt: {
         allowNull: false,

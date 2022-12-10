@@ -1,38 +1,37 @@
 'use strict';
 /** @type {import('sequelize-cli').Migration} */
+
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Feedbacks', {
-      uid: {
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
-        allowNull: false
-      },
+    await queryInterface.createTable('Exercicios', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      avaliacao_sistema: {
-        allowNull: false,
-        type: Sequelize.INTEGER
-      },
-      comentario: {
-        allowNull: false,
+      nome: {
         type: Sequelize.STRING
       },
-      recomendacao_sistema: {
-        allowNull: false,
-        type: Sequelize.INTEGER
+      link: {
+        type: Sequelize.STRING
+      },
+      grupo_muscular: {
+        type: Sequelize.STRING
+      },
+      ficha_id_fk: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Fichas',
+          key: 'id',
+        },
       },
       personal_cpf_fk: {
-        allowNull: false,
         type: Sequelize.STRING,
         references: {
           model: 'Personais',
-          key: 'cpf'
-        }
+          key: 'cpf',
+        },
       },
       createdAt: {
         allowNull: false,
@@ -45,6 +44,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Feedbacks');
+    await queryInterface.dropTable('Exercicios');
   }
 };

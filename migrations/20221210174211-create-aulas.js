@@ -1,13 +1,9 @@
 'use strict';
+/** @type {import('sequelize-cli').Migration} */
 
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Aulas', {
-      uid: {
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
-        allowNull: false
-      },
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -15,32 +11,28 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       data: {
-        allowNull: false,
         type: Sequelize.DATE
       },
-      ficha_fk: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Fichas',
-          key: 'id'
-        }
-      },
       aluno_cpf_fk: {
-        allowNull: false,
         type: Sequelize.STRING,
         references: {
           model: 'Alunos',
-          key: 'cpf'
-        }
+          key: 'cpf',
+        },
       },
       personal_cpf_fk: {
-        allowNull: false,
-        type: Sequelize.STRING, 
+        type: Sequelize.STRING,
         references: {
           model: 'Personais',
-          key: 'cpf'
-        }
+          key: 'cpf',
+        },
+      },
+      ficha_id_fk: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Fichas',
+          key: 'id',
+        },
       },
       createdAt: {
         allowNull: false,
