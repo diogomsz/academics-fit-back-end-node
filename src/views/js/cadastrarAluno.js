@@ -22,10 +22,11 @@ async function cadastrarAluno(e) {
 
     if(res.status === 200) {
         alert('Aluno cadastrado com sucesso!');
-        
     } else {
         alert('Erro ao cadastrar aluno!');
     }
+
+    localStorage.setItem('cpf', JSON.stringify(reqBody.cpf));
     
     clearCampos();
 }

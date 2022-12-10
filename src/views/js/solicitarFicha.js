@@ -2,11 +2,10 @@ const cpf = document.querySelector('#cpf');
 const altura = document.querySelector('#altura');
 const peso = document.querySelector('#peso');
 const objetivos = document.querySelector('#objetivos');
-const desc_objetivos = document.querySelector('#desc_objetivos');
+const desc_objetivos = document.querySelector('textarea');
 const btnSolicitar = document.querySelector('#btnSolicitar');
 
-cpf.value = getAluno()[0].cpf;
-
+cpf.value = JSON.parse(localStorage.getItem('cpf'));
 btnSolicitar.addEventListener('click', solicitarMontagem);
 
 async function solicitarMontagem(e) {
@@ -33,10 +32,10 @@ async function solicitarMontagem(e) {
 
 function getReqBody() {
     return {
-        cpf: cpf.value,
+        aluno_cpf_fk: cpf.value = JSON.parse(localStorage.getItem('cpf')),
         altura: altura.value,
         peso: peso.value,
-        objetivos: objetivos.value,
-        desc_objetivos: desc_objetivos.value
+        objetivo: objetivos.value,
+        descricao_objetivo: desc_objetivos.value
     }
 }

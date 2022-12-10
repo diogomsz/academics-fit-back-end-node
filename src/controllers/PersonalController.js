@@ -10,10 +10,10 @@ class PersonalController {
         }
     }
 
-    static async getPersonalById(req, res) {
-        const { id } = req.params;
+    static async getPersonalByCpf(req, res) {
+        const { cpf } = req.params;
         try {
-            const personal = await database.Personais.findOne({ where: { cpf: id } });
+            const personal = await database.Personais.findOne({ where: { cpf: cpf } });
             return res.status(200).json(personal);
         } catch (error) {
             return res.status(500).json({ mensagem: error.message });
@@ -21,11 +21,11 @@ class PersonalController {
     }
 
     static async updatePersonal(req, res) {
-        const { id } = req.params;
+        const { cpf } = req.params;
         const novoPersonal = req.body;
         try {
-            await database.Personais.update(novoPersonal, { where: { cpf: id } });
-            const personalAtualizado = await database.Personais.findOne({ where: { cpf: id } });
+            await database.Personais.update(novoPersonal, { where: { cpf: cpf } });
+            const personalAtualizado = await database.Personais.findOne({ where: { cpf: cpf } });
             return res.status(200).json(personalAtualizado);
         } catch (error) {
             return res.status(500).json({ mensagem: error.message });
@@ -33,10 +33,10 @@ class PersonalController {
     }
 
     static async deletePersonal(req, res) {
-        const { id } = req.params;
+        const { cpf } = req.params;
         try {
-            await database.Personais.destroy({ where: { cpf: id } });
-            return res.status(200).json({ mensagem: `Personal ${id} deletado com sucesso` });
+            await database.Personais.destroy({ where: { cpf: cpf } });
+            return res.status(200).json({ mensagem: `Personal ${cpf} deletado com sucesso` });
         } catch (error) {
             return res.status(500).json({ mensagem: error.message });
         }

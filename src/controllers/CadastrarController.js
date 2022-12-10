@@ -19,14 +19,12 @@ class CadastrarController {
 
     static async cadastrarPersonal(req, res) {
         const novoUsuario = req.body;
-
-        const cpf = novoUsuario.cpf;
         novoUsuario['tipo'] = 'Personal';
 
         await database.Usuarios.create(novoUsuario);
         
         try {
-            novoUsuario['cpf'] = usuario.cpf;
+            novoUsuario['cpf'] = novoUsuario.cpf;
 
             const novoUsuarioCriado = await database.Personais.create(novoUsuario);
             return res.status(200).json(novoUsuarioCriado);

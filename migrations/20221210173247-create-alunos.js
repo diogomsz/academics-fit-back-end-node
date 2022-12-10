@@ -23,6 +23,7 @@ module.exports = {
         type: Sequelize.FLOAT
       },
       feedback_id: {
+        autoIncrement: true,
         type: Sequelize.INTEGER
       },
       usuario_email_fk: {

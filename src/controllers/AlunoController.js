@@ -32,17 +32,18 @@ class AlunoController {
     }
     
     static async atualizaAluno(req, res) {
-        const { id } = req.params;
         const novasInfos = req.body;
+        const { cpf } = req.body;
+
         try {
             await database.Alunos.update(novasInfos, {
                 where: {
-                    id: Number(id)
+                    cpf: cpf
                 }
             });
             const alunoAtualizado = await database.Alunos.findOne({
                 where: {
-                    id: Number(id)
+                    cpf: cpf
                 }
             });
             return res.status(200).json(alunoAtualizado);
@@ -52,14 +53,14 @@ class AlunoController {
     }
 
     static async apagaAluno(req, res) {
-        const { id } = req.params;
+        const { cpf } = req.params;
         try {
             await database.Alunos.destroy({
                 where: {
-                    id: Number(id)
+                    cpf: Number(cpf)
                 }
             });
-            return res.status(200).json({ mensagem: `id ${id} deletado` });
+            return res.status(200).json({ mensagem: `cpf ${cpf} deletado` });
         } catch (error) {
             return res.status(500).json(error.message);
         }
