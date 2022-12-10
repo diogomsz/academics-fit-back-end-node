@@ -19,6 +19,9 @@ module.exports = {
       senha: {
         type: Sequelize.STRING
       },
+      tipo: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

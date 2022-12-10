@@ -3,7 +3,7 @@ const LoginController = require('../controllers/LoginController');
 
 const router = Router();
 
-router.post('/loginAluno', LoginController.login)
-      .post('/loginPersonal', LoginController.login);
+router.post('/loginAluno', LoginController.loginAluno)
+      .post('/loginPersonal', LoginController.loginPersonal);
 
 module.exports = router;
