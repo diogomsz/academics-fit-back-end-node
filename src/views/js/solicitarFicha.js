@@ -12,7 +12,7 @@ async function solicitarMontagem(e) {
     e.preventDefault();
 
     const reqBody = getReqBody();
-
+    
     await fetch('/solicitarFicha', {
         method: 'POST',
         body: JSON.stringify(reqBody),
