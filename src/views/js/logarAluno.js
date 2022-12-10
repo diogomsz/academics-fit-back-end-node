@@ -1,31 +1,40 @@
-const emailLoginAluno = document.getElementById('EmailLoginAluno');
-const senhaLoginAluno = document.getElementById('SenhaLoginAluno');
+const email = document.querySelector('#email');
+const senha = document.querySelector('#senha');
+const btnLogarAluno = document.querySelector('#btnLogarAluno');
 
-const btnLoginAluno = document.querySelector('.btnLogar');
+btnLogarAluno.addEventListener('click', logarAluno);
 
-btnLoginAluno.addEventListener('click', async (e) => {
+async function logarAluno(e) {
     e.preventDefault();
+
     const reqBody = getReqBody();
 
     const res = await fetch('/loginAluno', {
         method: 'POST',
+        body: JSON.stringify(reqBody),
         headers: {
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(reqBody)
+        }
     });
 
-    if(res.status === 403) {
-        alert('Email ou senha incorretos');
-        return;
+    if(res.status === 200) {
+        alert('Aluno logado com sucesso!');
+        window.location.href = '/';
+    } else {
+        alert('Erro ao logar aluno!');
     }
-    
-    window.location.href = '/montagemFicha';
-});
+
+    clearCampos();
+}
 
 function getReqBody() {
     return {
-        email: emailLoginAluno.value,
-        senha: senhaLoginAluno.value
+        email: email.value,
+        senha: senha.value
     }
+}
+
+function clearCampos() {
+    email.value = '';
+    senha.value = '';
 }

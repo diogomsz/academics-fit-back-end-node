@@ -24,7 +24,7 @@ app.get('/loginPersonal', (req, res) => {
 });
 
 app.get('/cadastrarAluno', (req, res) => {
-    res.sendFile('src/views/cadastrarAluno.html', { root: __dirname });
+    res.sendFile('src/views/CadastrarAluno.html', { root: __dirname });
 });
 
 app.get('/cadastrarPersonal', (req, res) => {

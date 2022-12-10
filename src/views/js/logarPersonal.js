@@ -1,8 +1,10 @@
-const emailLoginPersonal = document.getElementById('emailLoginPersonal');
-const senhaLoginPersonal = document.getElementById('senhaLoginPersonal');
-const botaoLoginPersonal = document.getElementById('btnLoginPersonal');
+const email = document.getElementById('email');
+const senha = document.getElementById('senha');
+const btnLogarPersonal = document.getElementById('btnLogarPersonal');
 
-botaoLoginPersonal.addEventListener('click', async (e) => {
+btnLogarPersonal.addEventListener('click', logarPersonal);
+
+async function logarPersonal(e) {
     e.preventDefault();
 
     const dados = getReqBody();
@@ -15,17 +17,17 @@ botaoLoginPersonal.addEventListener('click', async (e) => {
         body: JSON.stringify(dados)
     });
 
-    if(res.status === 403) {
-        alert("Email ou senha incorretos");
-        return;
+    if(res.status === 200) {
+        alert('Personal logado com sucesso!');
+        window.location.href = '/';
+    } else {
+        alert('Erro ao logar personal!');
     }
-
-    window.location.href = "/";
-});
+}
 
 function getReqBody() {
     return {
-        email: emailLoginPersonal.value,
-        senha: senhaLoginPersonal.value
+        email: email.value,
+        senha: senha.value
     }
 }

@@ -3,8 +3,10 @@ const database = require('../models');
 class LoginController {
     static async loginAluno(req, res) {
         const { email, senha } = req.body;
+        const tipo = 'Aluno';
+
         try {
-            const usuario = await database.Usuarios.findOne({ where: { email: email, senha: senha, tipo: 'Aluno' } });
+            const usuario = await database.Usuarios.findOne({ where: { email: email, senha: senha, tipo: tipo } });
             if (usuario) {
                 return res.status(200).json({ mensagem: 'Logado com sucesso' });
             } else {
@@ -17,8 +19,10 @@ class LoginController {
 
     static async loginPersonal(req, res) {
         const { email, senha } = req.body;
+        const tipo = 'Personal';
+
         try {
-            const usuario = await database.Usuarios.findOne({ where: { email: email, senha: senha, tipo: 'Personal' } });
+            const usuario = await database.Usuarios.findOne({ where: { email: email, senha: senha, tipo: tipo } });
             if (usuario) {
                 return res.status(200).json({ mensagem: 'Logado com sucesso' });
             } else {

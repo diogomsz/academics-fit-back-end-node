@@ -9,7 +9,6 @@
     integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <script src="JS/mascaraAluno.js" defer></script>
 </head>
 
 <body>
@@ -27,8 +26,8 @@
             <label id='userLabel' for='usuario'>Nome</label>
           </div>
           <div class='label-float'>
-            <input type='text' id='email' maxlength="" paceholder='' required>
-            <label id='userLabel' for='usuario'>CPF</label>
+            <input type='email' id='email' maxlength="" paceholder='' required>
+            <label id='userLabel' for='usuario'>Email</label>
           </div>
           <div class='label-float'>
             <input type='password' id='senha' paceholder='' required>
@@ -36,7 +35,7 @@
             <i class="fa fa-eye" aria-hidden="true"></i>
           </div>
           <div class='justify-center'>
-            <button onclick='entrar()'>Cadastrar</button>
+            <button id='btnCadastrarAluno'>Cadastrar</button>
           </div>
           <div class='justify-center'>
             <hr>
