@@ -1,6 +1,6 @@
 const cpf = document.querySelector('#cpf');
-const nome = document.querySelector('#nome');
 const email = document.querySelector('#email');
+const nome = document.querySelector('#nome');
 const senha = document.querySelector('#senha');
 const especialidade = document.querySelector('#especialidade');
 

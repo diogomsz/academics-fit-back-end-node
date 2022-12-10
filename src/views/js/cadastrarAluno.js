@@ -26,7 +26,7 @@ async function cadastrarAluno(e) {
     } else {
         alert('Erro ao cadastrar aluno!');
     }
-
+    
     clearCampos();
 }
 

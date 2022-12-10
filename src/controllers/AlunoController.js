@@ -12,13 +12,9 @@ class AlunoController {
     }
 
     static async pegaUmAluno(req, res) {
-        const { id } = req.params;
+        const { cpf } = req.body;
         try {
-            const umAluno = await database.Alunos.findOne({
-                where: {
-                    id: Number(id)
-                }
-            });
+            const umAluno = await database.Alunos.findOne({ where: { cpf: cpf } });
             return res.status(200).json(umAluno);
         } catch (error) {
             return res.status(500).json(error.message);

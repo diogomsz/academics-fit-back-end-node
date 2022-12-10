@@ -3,15 +3,12 @@ const database = require('../models');
 class CadastrarController {
     static async cadastrarAluno(req, res) {
         const novoUsuario = req.body;
-
-        const cpf = novoUsuario.cpf;
         novoUsuario['tipo'] = 'Aluno';
 
         await database.Usuarios.create(novoUsuario);
         
         try {
-            const usuario = await database.Usuarios.findOne({ where: { cpf: cpf } });
-            novoUsuario['usuario_email_fk'] = usuario.cpf;
+            novoUsuario['usuario_email_fk'] = novoUsuario.email;
 
             const novoUsuarioCriado = await database.Alunos.create(novoUsuario);
             return res.status(200).json(novoUsuarioCriado);
@@ -29,7 +26,6 @@ class CadastrarController {
         await database.Usuarios.create(novoUsuario);
         
         try {
-            const usuario = await database.Usuarios.findOne({ where: { cpf: cpf } });
             novoUsuario['cpf'] = usuario.cpf;
 
             const novoUsuarioCriado = await database.Personais.create(novoUsuario);
