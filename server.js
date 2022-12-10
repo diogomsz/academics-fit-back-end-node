@@ -24,15 +24,15 @@ app.get('/loginPersonal', (req, res) => {
 });
 
 app.get('/cadastrarAluno', (req, res) => {
-    res.sendFile('src/views/CadastrarAluno.html', { root: __dirname });
+    res.sendFile('src/views/cadastrarAluno.html', { root: __dirname });
 });
 
 app.get('/cadastrarPersonal', (req, res) => {
     res.sendFile('src/views/cadastrarPersonal.html', { root: __dirname });
 });
 
-app.get('/montagemFicha', (req, res) => {
-    res.sendFile('src/views/iniciodaFicha.html', { root: __dirname });
+app.get('/solicitarFicha', (req, res) => {
+    res.sendFile('src/views/solicitarFicha.html', { root: __dirname });
 });
 
 app.get('/perfilAluno', (req, res) => {

@@ -19,7 +19,7 @@ async function logarAluno(e) {
 
     if(res.status === 200) {
         alert('Aluno logado com sucesso!');
-        window.location.href = '/';
+        window.location.href = '/solicitarFicha';
     } else {
         alert('Erro ao logar aluno!');
     }

@@ -1,4 +1,5 @@
 const nome = document.querySelector('#usuario');
+const cpf = document.querySelector('#cpf');
 const email = document.querySelector('#email');
 const senha = document.querySelector('#senha');
 
@@ -32,6 +33,7 @@ async function cadastrarAluno(e) {
 function getReqBody() {
     return {
         nome: nome.value,
+        cpf: cpf.value,
         email: email.value,
         senha: senha.value
     }
@@ -39,6 +41,7 @@ function getReqBody() {
 
 function clearCampos() {
     nome.value = '';
+    cpf.value = '';
     email.value = '';
     senha.value = '';
 }
