@@ -7,15 +7,9 @@ btnLogarPersonal.addEventListener('click', logarPersonal);
 async function logarPersonal(e) {
     e.preventDefault();
 
-    const dados = getReqBody();
+    const reqBody = getReqBody();
 
-    const res = await fetch('/loginPersonal', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(dados)
-    });
+    const res = await axios.post('/loginPersonal', reqBody);
 
     if(res.status === 200) {
         alert('Personal logado com sucesso!');

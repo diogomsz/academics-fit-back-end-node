@@ -22,6 +22,9 @@ module.exports = {
       imc: {
         type: Sequelize.FLOAT
       },
+      logado: {
+        type: Sequelize.BOOLEAN
+      },
       feedback_id: {
         autoIncrement: true,
         type: Sequelize.INTEGER

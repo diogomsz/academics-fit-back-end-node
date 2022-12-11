@@ -17,10 +17,6 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'feedback_id_fk',
       });
 
-      Alunos.hasMany(models.SolicitacoesFicha, {
-        foreignKey: 'aluno_cpf_fk',
-      });
-
       Alunos.hasMany(models.Aulas, {
         foreignKey: 'aluno_cpf_fk',
       });
@@ -32,6 +28,7 @@ module.exports = (sequelize, DataTypes) => {
     altura: DataTypes.FLOAT,
     peso: DataTypes.FLOAT,
     imc: DataTypes.FLOAT,
+    logado: DataTypes.BOOLEAN,
     feedback_id: DataTypes.INTEGER,
     usuario_email_fk: DataTypes.STRING,
     feedback_id_fk: DataTypes.INTEGER

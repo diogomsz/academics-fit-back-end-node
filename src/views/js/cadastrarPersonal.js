@@ -13,13 +13,7 @@ async function cadastrarPersonal(e) {
 
     const reqBody = getReqBody();
 
-    const res = await fetch('/cadastrarPersonal', {
-        method: 'POST',
-        body: JSON.stringify(reqBody),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
+    const res = await axios.post('/cadastrarPersonal', reqBody);
 
     if(res.status === 200) {
         alert('Personal cadastrado com sucesso!');

@@ -1,3 +1,5 @@
+const { default: axios } = require("axios");
+
 const nome = document.querySelector('#usuario');
 const cpf = document.querySelector('#cpf');
 const email = document.querySelector('#email');
@@ -9,16 +11,12 @@ btnCadastrarAluno.addEventListener('click', cadastrarAluno);
 
 async function cadastrarAluno(e) {
     e.preventDefault();
-
+    
+    localStorage.clear();
+    
     const reqBody = getReqBody();
 
-    const res = await fetch('/cadastrarAluno', {
-        method: 'POST',
-        body: JSON.stringify(reqBody),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
+    const res = await axios.post('/cadastrarAluno', reqBody);
 
     if(res.status === 200) {
         alert('Aluno cadastrado com sucesso!');

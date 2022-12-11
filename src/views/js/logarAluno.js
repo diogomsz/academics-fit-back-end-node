@@ -9,21 +9,14 @@ async function logarAluno(e) {
 
     const reqBody = getReqBody();
 
-    const res = await fetch('/loginAluno', {
-        method: 'POST',
-        body: JSON.stringify(reqBody),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
+    const res = await axios.post('/loginAluno', reqBody);
 
-    if(res.status === 200) {
-        alert('Aluno logado com sucesso!');
-        window.location.href = '/solicitarFicha';
+    if(res.status == 403) {
+        alert('Usuário ou senha incorretos!');
     } else {
-        alert('Erro ao logar aluno!');
+        window.location.href = '/solicitarFicha';
     }
-
+    
     clearCampos();
 }
 
